@@ -95,6 +95,6 @@ function checkEmail(info) {
     emailGroup.classList.remove('error')
   }
 }
-console.log('22222222');
+
 
 

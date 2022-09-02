@@ -1,6 +1,6 @@
 import './style.scss';
 
-import './src/index.js';
-import './src/while';
+import './index.js';
+import './while';
 
 console.log('test');
