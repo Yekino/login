@@ -1,0 +1,204 @@
+:root {
+  --red: #f5222d;
+  --wood: #ffdeaa;
+  --brown: #402516;
+  --orange: #fa8c16;
+  --gold: #faad14;
+  --lime: #a0d911;
+  --green: #52c41a;
+  --cyan: #13c2c2;
+  --blue: #1890ff;
+  --hsl-blue: 209, 100%, 55%;
+  --blue-dark: #0f4c85;
+  --hsl-blue-dark: 209, 80%, 29%;
+  --purple: #722ed1;
+  --magenta: #eb2f96;
+  --hsl-magenta: 327, 82%, 55%;
+  font-size: 10px;
+
+  --cyan-light: #5cdbd3;
+  --blue-light: #69c0ff;
+  --hsl-blue-light: 205, 100%, 71%;
+  --yellow-light: #fffb8f;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+
+  background: radial-gradient(
+    rgba(83, 196, 26, 0.438),
+    rgba(114, 46, 209, 0.441)
+  );
+
+  display: grid;
+  place-items: center;
+}
+
+#app {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 60rem;
+  min-width: 30rem;
+
+  background-color: hsl(var(--hsl-blue-dark), 0.4);
+  border: 1px solid #52c41a;
+  border-radius: 1rem;
+
+  padding: 5rem;
+  box-shadow: 0 0 1.5rem 0 var(--blue-dark);
+
+  .login {
+    width: 100%;
+
+    h1 {
+      font-family: "Qwitcher Grypen";
+      text-align: center;
+      font-size: 6rem;
+      font-weight: 700;
+      color: var(--wood);
+      padding-bottom: 3rem;
+      letter-spacing: 1.2rem;
+      background-image: linear-gradient(
+        to right bottom,
+        var(--green),
+        var(--wood)
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: rotateX(20deg) skewX(20deg) scale(1.3);
+      }
+    }
+    form {
+      font-size: 1.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      display: grid;
+      place-items: center;
+      gap: 2rem;
+      width: 100%;
+      .input-group {
+        width: 100%;
+
+        label {
+          color: var(--wood);
+        }
+
+        input {
+          font-size: 1.6rem;
+          width: calc(100% - 10.5rem);
+          background-color: hsl(var(--hsl-blue-dark), 0.4);
+          border: none;
+          outline: none;
+          border-radius: 1rem;
+          padding: 0.2rem 1rem;
+          &:focus {
+            box-shadow: 0 0 0 1px var(--blue-light);
+          }
+          &::placeholder {
+            color: hsl(var(--hsl-blue-light), 0.8);
+          }
+        }
+
+        // SUCCESS & FAIL
+        &.success {
+          input {
+            &:focus {
+              box-shadow: 0 0 0 1px var(--cyan-light);
+            }
+          }
+          .message {
+            display: block;
+            color: var(--cyan);
+          }
+        }
+        
+        &.error {
+          input {
+            &:focus {
+              box-shadow: 0 0 0 1px var(--magenta);
+            }
+          }
+          .message {
+            display: block;
+            color: hsl(var(--hsl-magenta), 0.7);
+          }
+        }
+
+        // PASSWORD
+        #password {
+          width: calc(100% - 10.5rem - 1rem);
+        }
+
+        .password_icon {
+          #eye {
+            display: inline;
+          }
+          #eye-slash {
+            display: none;
+          }
+          &.show {
+            #eye {
+              display: none;
+            }
+            #eye-slash {
+              display: inline;
+            }
+          }
+        }
+
+        span {
+          font-size: 1rem;
+          font-weight: 600;
+          line-height: 1.5;
+        }
+
+        .message {
+          display: none;
+        }
+      }
+
+      button {
+        font-size: 1.6rem;
+        width: 50%;
+        background-color: hsl(var(--hsl-blue-dark), 0.4);
+        color: var(--cyan);
+        border: 1px solid #52c41a;
+        border-radius: 0.2rem;
+        padding: 0.2rem;
+        transition: 0.2s;
+
+        &:hover {
+          transform: translateY(-0.5rem);
+          letter-spacing: 1.2rem;
+          box-shadow: inset 0 1rem 2rem #52c41a;
+        }
+      }
+    }
+  }
+}
